@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="sk">
-    <head>
-        <meta charset="UTF-8">
-        <title>@11</title>
-        <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-        <meta name="description" content="ERNI Cinema">
-        <link href="css/style.css" type="text/css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>ERNI Cinema</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <meta name="description" content="ERNI Cinema">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
 
-        <script src="js/main.js"></script>
-    </head>
-    <body>
-        <header>
-           <p>Header of the page</p>
-        </header>
-        
-        <h1>CONTENT OF THE PAGE</h1>
-       
-        <footer>
-          <p>Footer of the page</p>
-        </footer>
-    </body>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <p>Header of the page</p>
+    </header>
+    <form id="login-form" class="form-inline">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="name@email.sk">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="*****">
+        </div>
+        <button class="btn btn-primary" id="login">Log in</button>
+        <button class="btn btn-success" id="register">Register</button>
+    </form>
+
+    <footer>
+        <p>Footer of the page</p>
+    </footer>
+
+    <script>
+        $(function () {
+            $('#register').click(function () {
+                $('#login-form').validate({
+                    rules: {
+                        email: { email: true, required: true },
+                        password: { required: true }
+                    },
+                    submitHandler: function (form) {
+                        $.ajax({
+                            url: "/users/register",
+                            type: "POST",
+                            contentType: "application/json",
+                            data: JSON.stringify({ 'password': $('#password').val(), 'email': $('#email').val() }),
+                        });
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
 </html>

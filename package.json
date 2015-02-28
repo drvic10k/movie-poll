@@ -5,7 +5,10 @@
   "dependencies": {
     "express": "^4.9.7",
     "request": "^2.45.0",
-    "hbs": "^2.7.0"
+    "hbs": "^2.7.0",
+	"mongodb": "*",
+	"mongoose": "*",
+	"body-parser": "*"
   },
   "devDependencies": {
     "mocha": "^1.21.5",
