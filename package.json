@@ -1,0 +1,36 @@
+{
+  "name": "movie-poll",
+  "description": "Polling system",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.9.7",
+    "request": "^2.45.0",
+    "hbs": "^2.7.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.5",
+    "jshint": "^2.5.6"    
+  },
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "posttest": "jshint --verbose app.js static/js/ views/ --extract=auto"
+  },
+  "author": {
+    "name": "Matus Brlit",
+    "email": "matus.brlit@erni.sk"
+  },
+  "contributors": [
+  ],
+  "keywords": [
+    "movie",
+    "poll",
+    "erni",
+    "cinema"
+  ],
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "main": "app.js"
+}
