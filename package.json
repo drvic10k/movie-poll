@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "mocha --reporter spec",
-    "posttest": "jshint --verbose app.js static/js/ views/ --extract=auto"
+    "posttest": "jshint --verbose app.js models.js models/ static/js/ views/ --extract=auto"
   },
   "author": {
     "name": "Matus Brlit",
